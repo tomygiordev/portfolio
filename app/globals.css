@@ -230,7 +230,7 @@ nav a {
   max-height: 790px;
   min-height: 590px;
   position: relative;
-  z-index: 2;
+  z-index: 5;
 }
 
 .portrait-frame {
@@ -401,6 +401,7 @@ nav a {
   overflow: hidden;
   padding: 20px;
   position: relative;
+  min-width: 0;
   transition: transform .35s cubic-bezier(.2,.8,.2,1);
 }
 
@@ -452,6 +453,7 @@ nav a {
 .project-screen img {
   display: block;
   height: 100%;
+  max-width: 100%;
   object-fit: cover;
   object-position: top center;
   transition: transform .6s cubic-bezier(.2,.8,.2,1);
@@ -700,8 +702,18 @@ nav a {
 }
 
 .contact-actions a:last-child {
-  border-bottom: 1px solid var(--ink);
   font-size: 11px;
+}
+
+.contact-details {
+  align-items: end;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.contact-details a {
+  border-bottom: 1px solid var(--ink);
   padding-bottom: 7px;
 }
 
@@ -795,8 +807,16 @@ nav a {
 
   .section-intro > p { margin-top: 28px; }
   .project-grid { grid-template-columns: 1fr; }
-  .project-card { min-height: 380px; }
-  .project-screen { inset: 10% 0 28%; }
+  .project-card {
+    aspect-ratio: auto;
+    height: 480px;
+    min-height: 0;
+    width: 100%;
+  }
+  .project-screen {
+    height: 245px;
+    inset: 58px 0 auto;
+  }
   .project-bottom h3 { font-size: 13vw; }
 
   .services-heading {
@@ -846,6 +866,6 @@ nav a {
     margin-top: 12vh;
   }
 
-  .contact-actions a:last-child { align-self: flex-start; }
+  .contact-details { align-items: start; }
   .footer-line { align-items: flex-start; flex-direction: column; gap: 8px; }
 }

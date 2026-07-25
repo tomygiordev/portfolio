@@ -81,7 +81,7 @@ export default function Home() {
           <a href="#servicios">Servicios</a>
           <a href="#sobre-mi">Sobre mí</a>
         </nav>
-        <a className="header-cta" href="https://wa.me/543435220920" target="_blank" rel="noreferrer">
+          <a className="header-cta" href="https://wa.me/5493435220920" target="_blank" rel="noreferrer">
           Hablemos <span>↗</span>
         </a>
       </header>
@@ -103,7 +103,7 @@ export default function Home() {
             rápida y lista para generar consultas.
           </p>
           <div className="hero-actions">
-            <a className="primary-button" href="https://wa.me/543435220920" target="_blank" rel="noreferrer">
+            <a className="primary-button" href="https://wa.me/5493435220920" target="_blank" rel="noreferrer">
               Quiero mi página web <span>↗</span>
             </a>
             <a className="text-button" href="#trabajos">Ver trabajos <span>↓</span></a>
@@ -249,10 +249,13 @@ export default function Home() {
           <h2>Hagamos una web<br />que dé ganas de <em>elegirte.</em></h2>
         </div>
         <div className="contact-actions">
-          <a href="https://wa.me/543435220920" target="_blank" rel="noreferrer">
+          <a href="https://wa.me/5493435220920" target="_blank" rel="noreferrer">
             Escribime por WhatsApp <span>↗</span>
           </a>
-          <a href="mailto:tomasroldangiorgi@gmail.com">tomasroldangiorgi@gmail.com</a>
+          <div className="contact-details">
+            <a href="mailto:tomasroldangiorgi@gmail.com">tomasroldangiorgi@gmail.com</a>
+            <a href="https://wa.me/5493435220920" target="_blank" rel="noreferrer">+54 9 343 522 0920</a>
+          </div>
         </div>
         <div className="footer-line">
           <span>Tomás Roldán Giorgi</span>

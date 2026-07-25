@@ -1,292 +1,259 @@
-"use client";
-
-import { useEffect, useState } from "react";
-
 const projects = [
   {
     number: "01",
-    name: "Nictech",
-    kind: "Servicio técnico · Plataforma comercial",
+    name: "NicTech",
+    type: "E-commerce + gestión",
     url: "https://nictech.com.ar",
-    displayUrl: "nictech.com.ar",
-    summary:
-      "Una experiencia digital clara y directa para convertir búsquedas locales en consultas reales, reparaciones y ventas.",
-    details: ["Estrategia", "UX/UI", "Desarrollo", "SEO local"],
-    className: "nictech",
-    preview: (
-      <div className="device-preview" aria-hidden="true">
-        <div className="phone phone-back" />
-        <div className="phone phone-front">
-          <span className="phone-dot" />
-          <strong>NIC</strong>
-          <small>TECH</small>
-        </div>
-        <div className="repair-pill">Servicio técnico especializado</div>
-      </div>
-    ),
+    summary: "Tienda, seguimiento de reparaciones y panel de administración en una misma plataforma.",
+    stack: "React · Supabase",
+    tone: "lime",
   },
   {
     number: "02",
     name: "WP Construcciones",
-    kind: "Arquitectura · Web corporativa",
+    type: "Web corporativa",
     url: "https://wpconstrucciones.com",
-    displayUrl: "wpconstrucciones.com",
-    summary:
-      "Precisión técnica convertida en una presencia editorial que transmite trayectoria, método y confianza en Steel Frame.",
-    details: ["Dirección visual", "Arquitectura web", "Desarrollo", "Contenido"],
-    className: "wp",
-    preview: (
-      <div className="building-preview" aria-hidden="true">
-        <div className="building-mark">WP</div>
-        <div className="structure-lines">
-          <i />
-          <i />
-          <i />
-          <i />
-        </div>
-        <p>Construcciones<br />especiales.</p>
-      </div>
-    ),
+    summary: "Una presencia digital técnica y profesional para especialistas en Steel Frame.",
+    stack: "Diseño · Desarrollo",
+    tone: "paper",
   },
   {
     number: "03",
     name: "Integrative",
-    kind: "Agencia digital · Producto y marca",
+    type: "Agencia digital",
     url: "https://integrative.help",
-    displayUrl: "integrative.help",
-    summary:
-      "Una agencia posicionada desde la ejecución: soluciones a medida, productos para industrias y resultados sin ruido.",
-    details: ["Brand system", "Producto", "Web", "Motion"],
-    className: "integrative",
-    preview: (
-      <div className="dashboard-preview" aria-hidden="true">
-        <div className="dash-sidebar"><b>in</b><i /><i /><i /></div>
-        <div className="dash-content">
-          <div className="dash-top"><span>Overview</span><em>Q2 · 2026</em></div>
-          <div className="dash-metrics">
-            <span><small>Proyectos</small><b>24</b></span>
-            <span><small>Uptime</small><b>99.9%</b></span>
-          </div>
-          <div className="dash-chart"><i /><i /><i /><i /><i /><i /></div>
-        </div>
-      </div>
-    ),
+    summary: "Sitio comercial multipágina con identidad propia, servicios y productos SaaS.",
+    stack: "Branding · Web",
+    tone: "blue",
   },
   {
     number: "04",
-    name: "Contabilidad en práctica",
-    kind: "Educación · Landing de conversión",
+    name: "Contabilidad práctica",
+    type: "Landing de conversión",
     url: "https://curso-contabilidad-practica.pages.dev",
-    displayUrl: "curso-contabilidad-practica.pages.dev",
-    summary:
-      "Un curso complejo presentado con una narrativa simple: aprender haciendo, del comprobante al balance real de una PyME.",
-    details: ["Concepto", "Storytelling", "UX/UI", "Desarrollo"],
-    className: "accounting",
-    preview: (
-      <div className="ledger-preview" aria-hidden="true">
-        <div className="ledger-tab">CURSO 01</div>
-        <p>Del comprobante<br />al balance.</p>
-        <div className="ledger-lines">
-          <span>Activo</span><b>$ 4.280.000</b>
-          <span>Pasivo</span><b>$ 1.620.000</b>
-          <span>Resultado</span><b>$ 2.660.000</b>
-        </div>
-      </div>
-    ),
+    summary: "Una propuesta educativa compleja transformada en un recorrido simple y convincente.",
+    stack: "UX · Storytelling",
+    tone: "orange",
   },
   {
     number: "05",
     name: "NextCampus",
-    kind: "EdTech · Plataforma académica",
+    type: "Producto educativo",
     url: "https://nextcampus.space",
-    displayUrl: "nextcampus.space",
-    summary:
-      "El recorrido universitario convertido en producto: materias, apuntes, calendario y correlativas en un mismo lugar.",
-    details: ["Product design", "Sistema UI", "Full-stack", "Data"],
-    className: "campus",
-    preview: (
-      <div className="campus-preview" aria-hidden="true">
-        <div className="campus-head"><b>NC</b><span>Lic. en Sistemas</span></div>
-        <div className="campus-grid">
-          <span><small>01</small>Algoritmos</span>
-          <span><small>02</small>Álgebra</span>
-          <span><small>03</small>Sistemas</span>
-          <span className="campus-active"><small>04</small>Programación</span>
-        </div>
-        <div className="campus-route">1º año <i /> 2º año <i /> 3º año</div>
-      </div>
-    ),
+    summary: "Materias, apuntes, calendario y correlativas en una experiencia académica centralizada.",
+    stack: "Product · Full-stack",
+    tone: "sky",
+  },
+];
+
+const services = [
+  {
+    number: "01",
+    title: "Web para tu negocio",
+    text: "Una página profesional, rápida y pensada para que tus clientes entiendan qué hacés y te contacten.",
+  },
+  {
+    number: "02",
+    title: "Landing que convierte",
+    text: "Una página enfocada en vender un servicio, curso o producto con un mensaje claro y una acción concreta.",
+  },
+  {
+    number: "03",
+    title: "Web + sistema",
+    text: "Cuando además de mostrar necesitás gestionar: stock, clientes, turnos, reparaciones o procesos internos.",
   },
 ];
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const onMove = (event: PointerEvent) => {
-      document.documentElement.style.setProperty("--pointer-x", `${event.clientX}px`);
-      document.documentElement.style.setProperty("--pointer-y", `${event.clientY}px`);
-    };
-    window.addEventListener("pointermove", onMove);
-    return () => window.removeEventListener("pointermove", onMove);
-  }, []);
-
-  const closeMenu = () => setMenuOpen(false);
-
   return (
     <main>
       <div className="grain" aria-hidden="true" />
+
       <header className="site-header">
-        <a className="wordmark" href="#inicio" aria-label="Ir al inicio">
-          G<span>·</span>
-        </a>
-        <div className="header-status">
-          <i /> Disponible para proyectos selectos
-        </div>
-        <nav className={menuOpen ? "nav-open" : ""} aria-label="Navegación principal">
-          <a href="#proyectos" onClick={closeMenu}>Proyectos</a>
-          <a href="#perfil" onClick={closeMenu}>Perfil</a>
-          <a href="#contacto" onClick={closeMenu}>Contacto</a>
+        <a className="wordmark" href="#inicio" aria-label="Ir al inicio">TRG<span>•</span></a>
+        <nav aria-label="Navegación principal">
+          <a href="#trabajos">Trabajos</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#sobre-mi">Sobre mí</a>
         </nav>
-        <button
-          className="menu-button"
-          type="button"
-          aria-label={menuOpen ? "Cerrar menú" : "Abrir menú"}
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          <span />
-          <span />
-        </button>
+        <a className="header-cta" href="https://wa.me/543435220920" target="_blank" rel="noreferrer">
+          Hablemos <span>↗</span>
+        </a>
       </header>
 
       <section className="hero" id="inicio">
-        <div className="hero-kicker">
-          <span>Diseño & desarrollo digital</span>
-          <span>Entre Ríos · Argentina</span>
-        </div>
-        <div className="hero-title" aria-label="Construyo ideas que funcionan">
-          <span className="title-line">CONSTRUYO</span>
-          <span className="title-line title-indent">IDEAS QUE</span>
-          <span className="title-line title-accent">FUNCIONAN.</span>
-        </div>
-        <div className="hero-bottom">
-          <p>
-            Estrategia, diseño y código para convertir problemas reales en
-            productos digitales que la gente entiende, usa y recuerda.
+        <div className="hero-copy">
+          <p className="hero-eyebrow"><i /> Diseñador y desarrollador web · Paraná, Argentina</p>
+          <h1>
+            <span>Tomás Roldán</span>
+            <strong>Giorgi.</strong>
+          </h1>
+          <h2>
+            Diseño páginas web que hacen ver
+            <em> profesional</em> a tu negocio.
+          </h2>
+          <p className="hero-description">
+            Me encargo de todo: estrategia, diseño, desarrollo y publicación.
+            Vos me contás qué necesitás; yo lo convierto en una web clara,
+            rápida y lista para generar consultas.
           </p>
-          <a className="round-link" href="#proyectos" aria-label="Ver proyectos">
-            <span>Ver trabajo</span>
-            <b>↓</b>
-          </a>
+          <div className="hero-actions">
+            <a className="primary-button" href="https://wa.me/543435220920" target="_blank" rel="noreferrer">
+              Quiero mi página web <span>↗</span>
+            </a>
+            <a className="text-button" href="#trabajos">Ver trabajos <span>↓</span></a>
+          </div>
+          <div className="hero-links">
+            <a href="https://github.com/tomygiordev" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/tomasroldangiorgi" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a href="mailto:tomasroldangiorgi@gmail.com">Email ↗</a>
+          </div>
         </div>
-        <div className="hero-orbit" aria-hidden="true">
-          <span>PRODUCT · WEB · SYSTEMS ·</span>
+
+        <div className="hero-portrait">
+          <div className="portrait-frame">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/portfolio/perfil.png" alt="Tomás Roldán Giorgi, diseñador y desarrollador web" />
+          </div>
+          <div className="portrait-note">
+            <span>Hola, soy Tomás.</span>
+            <p>Diseño la web y también escribo el código.</p>
+          </div>
+          <div className="portrait-stamp" aria-hidden="true">WEB<br />DEV</div>
+        </div>
+
+        <div className="hero-proof">
+          <div><strong>5+</strong><span>sitios publicados</span></div>
+          <div><strong>100%</strong><span>a medida</span></div>
+          <div><strong>Full-stack</strong><span>de la idea al online</span></div>
+          <div><strong>Directo</strong><span>hablás conmigo</span></div>
         </div>
       </section>
 
-      <section className="manifesto" id="perfil">
-        <div className="manifesto-photo">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/portfolio/perfil.png" alt="Retrato de Gime, diseñador y desarrollador digital" />
-          <span className="photo-label">Ese soy yo →</span>
+      <section className="work" id="trabajos">
+        <div className="section-intro">
+          <div>
+            <p className="section-label">01 / Trabajo seleccionado</p>
+            <h2>Webs reales para<br /><em>negocios reales.</em></h2>
+          </div>
+          <p>
+            Cada proyecto parte de un problema distinto. La solución también:
+            no uso plantillas repetidas ni hago dos webs iguales.
+          </p>
         </div>
-        <div className="manifesto-copy">
-          <p className="eyebrow">01 / Sobre mí</p>
-          <h2>
-            No hago “páginas lindas”.<br />
-            <em>Construyo herramientas</em><br />
-            para mover negocios.
-          </h2>
-          <div className="manifesto-notes">
-            <p>
-              Me obsesiona encontrar la forma más clara, útil y memorable de
-              resolver un problema. Trabajo de punta a punta: entiendo el
-              negocio, diseño la experiencia y la convierto en un producto real.
-            </p>
-            <p>
-              Menos reuniones eternas. Más decisiones con intención, entregas
-              concretas y tecnología que sigue funcionando cuando el proyecto crece.
-            </p>
+
+        <div className="project-grid">
+          {projects.map((project) => (
+            <a
+              className={`project-card ${project.tone}`}
+              href={project.url}
+              target="_blank"
+              rel="noreferrer"
+              key={project.name}
+              aria-label={`Visitar ${project.name}`}
+            >
+              <div className="project-top">
+                <span>{project.number}</span>
+                <span>{project.type}</span>
+              </div>
+              <div className="project-mark" aria-hidden="true">
+                {project.name.split(" ").map((word) => word[0]).join("").slice(0, 2)}
+              </div>
+              <div className="project-bottom">
+                <h3>{project.name}</h3>
+                <p>{project.summary}</p>
+                <div><span>{project.stack}</span><b>Ver web ↗</b></div>
+              </div>
+            </a>
+          ))}
+
+          <div className="project-card project-more">
+            <p className="section-label">También construyo</p>
+            <ul>
+              <li><span>Apiario OS</span><small>Sistema de trazabilidad</small></li>
+              <li><span>Ragy</span><small>Asistente académico IA</small></li>
+              <li><span>AppGeoCimenta</span><small>Automatización de obra</small></li>
+            </ul>
+            <a href="https://github.com/tomygiordev" target="_blank" rel="noreferrer">
+              Ver más en GitHub ↗
+            </a>
           </div>
         </div>
       </section>
 
-      <section className="projects" id="proyectos">
-        <div className="section-heading">
-          <p className="eyebrow">02 / Trabajo seleccionado</p>
-          <h2>Cinco proyectos.<br /><em>Cinco problemas resueltos.</em></h2>
-          <span className="project-count">2024—26</span>
+      <section className="services" id="servicios">
+        <div className="services-heading">
+          <p className="section-label">02 / Cómo puedo ayudarte</p>
+          <h2>Tu negocio merece<br />una web a la altura.</h2>
         </div>
-
-        <div className="project-list">
-          {projects.map((project) => (
-            <article className={`project ${project.className}`} key={project.name}>
-              <div className="project-meta">
-                <span>{project.number}</span>
-                <p>{project.kind}</p>
-              </div>
-              <a
-                className="project-visual"
-                href={project.url}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Visitar ${project.name}`}
-              >
-                <div className="project-canvas">{project.preview}</div>
-                <span className="visit-badge">Visitar ↗</span>
-              </a>
-              <div className="project-info">
-                <div>
-                  <h3>{project.name}</h3>
-                  <a href={project.url} target="_blank" rel="noreferrer">
-                    {project.displayUrl} ↗
-                  </a>
-                </div>
-                <p>{project.summary}</p>
-                <ul>
-                  {project.details.map((detail) => <li key={detail}>{detail}</li>)}
-                </ul>
-              </div>
+        <div className="service-list">
+          {services.map((service) => (
+            <article key={service.title}>
+              <span>{service.number}</span>
+              <h3>{service.title}</h3>
+              <p>{service.text}</p>
             </article>
           ))}
         </div>
-      </section>
-
-      <section className="capabilities">
-        <p className="eyebrow">03 / Qué hago</p>
-        <div className="capability-row">
-          <span>01</span><h3>Estrategia de producto</h3><p>Encontrar qué construir —y qué no— antes de escribir una línea de código.</p>
-        </div>
-        <div className="capability-row">
-          <span>02</span><h3>Diseño de experiencias</h3><p>Interfaces con jerarquía, personalidad y cero fricción innecesaria.</p>
-        </div>
-        <div className="capability-row">
-          <span>03</span><h3>Desarrollo web</h3><p>Sitios y plataformas veloces, escalables y pensados para durar.</p>
-        </div>
-        <div className="capability-row">
-          <span>04</span><h3>Sistemas a medida</h3><p>Procesos complejos convertidos en herramientas simples para equipos reales.</p>
+        <div className="process">
+          <p className="section-label">Un proceso simple</p>
+          <div><span>1</span><b>Me contás tu idea</b></div>
+          <i>→</i>
+          <div><span>2</span><b>Diseño y desarrollo</b></div>
+          <i>→</i>
+          <div><span>3</span><b>La publicamos</b></div>
         </div>
       </section>
 
-      <section className="contact" id="contacto">
-        <div className="contact-top">
-          <p className="eyebrow">04 / El próximo puede ser el tuyo</p>
-          <span>¿Tenés algo en mente?</span>
+      <section className="about" id="sobre-mi">
+        <div className="about-title">
+          <p className="section-label">03 / Quién está detrás</p>
+          <h2>Técnica para construir.<br /><em>Criterio para decidir.</em></h2>
         </div>
-        <a className="contact-link" href="mailto:hola@integrative.com.ar">
-          <span>HABLEMOS</span>
-          <b>↗</b>
-        </a>
-        <div className="contact-footer">
+        <div className="about-copy">
           <p>
-            Contame qué querés construir, mejorar o destrabar.<br />
-            Respondo personalmente.
+            Soy Tomás, desarrollador full-stack y estudiante avanzado de
+            Licenciatura en Sistemas de Información en la FCYT–UADER.
+            No sólo programo: entiendo el negocio, ordeno el problema y propongo
+            una solución que tenga sentido.
           </p>
-          <a href="mailto:hola@integrative.com.ar">hola@integrative.com.ar</a>
-          <span>© {new Date().getFullYear()} · Hecho con intención</span>
+          <div className="about-facts">
+            <div>
+              <span>Experiencia</span>
+              <p>WP Steel Frame · NicTech · GeoCimenta</p>
+            </div>
+            <div>
+              <span>Tecnologías</span>
+              <p>React · Next.js · TypeScript · .NET · Supabase · SQL</p>
+            </div>
+            <div>
+              <span>Formación</span>
+              <p>Análisis de Sistemas 82% · Cisco Cybersecurity</p>
+            </div>
+          </div>
+          <a className="cv-link" href="/portfolio/CV-Tomas-Roldan-Giorgi.pdf" target="_blank">
+            Ver currículum completo <span>↗</span>
+          </a>
         </div>
       </section>
+
+      <footer className="contact" id="contacto">
+        <div>
+          <p className="section-label">¿Tenés un negocio o una idea?</p>
+          <h2>Hagamos una web<br />que dé ganas de <em>elegirte.</em></h2>
+        </div>
+        <div className="contact-actions">
+          <a href="https://wa.me/543435220920" target="_blank" rel="noreferrer">
+            Escribime por WhatsApp <span>↗</span>
+          </a>
+          <a href="mailto:tomasroldangiorgi@gmail.com">tomasroldangiorgi@gmail.com</a>
+        </div>
+        <div className="footer-line">
+          <span>Tomás Roldán Giorgi</span>
+          <span>Paraná, Entre Ríos · Argentina</span>
+          <span>© 2026</span>
+        </div>
+      </footer>
     </main>
   );
 }

@@ -18,31 +18,24 @@ const siteUrl = "https://tomygiordev.github.io/portfolio";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Gime — Diseño, producto y desarrollo digital",
+  title: "Tomás Roldán Giorgi — Diseño y desarrollo web",
   description:
-    "Portfolio de Gime. Estrategia, diseño y desarrollo de productos digitales, sitios web y sistemas que resuelven problemas reales.",
+    "Diseño y desarrollo páginas web profesionales para negocios, servicios y productos. Estrategia, diseño, código y publicación.",
   icons: {
     icon: "/portfolio/favicon.svg",
     shortcut: "/portfolio/favicon.svg",
   },
   openGraph: {
-    title: "Gime — Ideas digitales que funcionan",
-    description: "Diseño, producto y código para mover negocios reales.",
+    title: "Tomás Roldán Giorgi — Diseño y desarrollo web",
+    description: "Páginas web profesionales que hacen ver mejor a tu negocio y convierten visitas en consultas.",
     type: "website",
     locale: "es_AR",
     url: siteUrl,
-    images: [{
-      url: `${siteUrl}/og.png`,
-      width: 1536,
-      height: 910,
-      alt: "Construyo ideas que funcionan.",
-    }],
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Gime — Ideas digitales que funcionan",
-    description: "Diseño, producto y código para mover negocios reales.",
-    images: [`${siteUrl}/og.png`],
+    card: "summary",
+    title: "Tomás Roldán Giorgi — Diseño y desarrollo web",
+    description: "Páginas web profesionales para negocios que quieren crecer.",
   },
 };
 

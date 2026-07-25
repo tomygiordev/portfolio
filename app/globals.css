@@ -269,7 +269,7 @@ nav a {
   position: absolute;
   transform: rotate(-2deg);
   width: 210px;
-  z-index: 3;
+  z-index: 8;
 }
 
 .portrait-note span {
@@ -431,6 +431,39 @@ nav a {
 }
 
 .project-card:hover .project-mark { transform: rotate(0deg) scale(1.04); }
+
+.project-screen {
+  background: rgba(17,17,15,.12);
+  inset: 11% 0 28%;
+  overflow: hidden;
+  position: absolute;
+  transform: rotate(-3deg) scale(.92);
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.project-screen::after {
+  background: linear-gradient(135deg, rgba(255,255,255,.14), transparent 45%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.project-screen img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform .6s cubic-bezier(.2,.8,.2,1);
+  width: 100%;
+}
+
+.project-card:hover .project-screen {
+  box-shadow: 11px 11px 0 rgba(17,17,15,.3);
+  transform: rotate(0deg) scale(.96);
+}
+
+.project-card:hover .project-screen img { transform: scale(1.04); }
 
 .project-bottom {
   margin-top: auto;
@@ -763,7 +796,7 @@ nav a {
   .section-intro > p { margin-top: 28px; }
   .project-grid { grid-template-columns: 1fr; }
   .project-card { min-height: 380px; }
-  .project-mark { font-size: 38vw; }
+  .project-screen { inset: 10% 0 28%; }
   .project-bottom h3 { font-size: 13vw; }
 
   .services-heading {

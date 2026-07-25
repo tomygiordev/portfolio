@@ -4,6 +4,7 @@ const projects = [
     name: "NicTech",
     type: "E-commerce + gestión",
     url: "https://nictech.com.ar",
+    screen: "nictech.png",
     summary: "Tienda, seguimiento de reparaciones y panel de administración en una misma plataforma.",
     stack: "React · Supabase",
     tone: "lime",
@@ -13,6 +14,7 @@ const projects = [
     name: "WP Construcciones",
     type: "Web corporativa",
     url: "https://wpconstrucciones.com",
+    screen: "wp-construcciones.png",
     summary: "Una presencia digital técnica y profesional para especialistas en Steel Frame.",
     stack: "Diseño · Desarrollo",
     tone: "paper",
@@ -22,6 +24,7 @@ const projects = [
     name: "Integrative",
     type: "Agencia digital",
     url: "https://integrative.help",
+    screen: "integrative.png",
     summary: "Sitio comercial multipágina con identidad propia, servicios y productos SaaS.",
     stack: "Branding · Web",
     tone: "blue",
@@ -31,6 +34,7 @@ const projects = [
     name: "Contabilidad práctica",
     type: "Landing de conversión",
     url: "https://curso-contabilidad-practica.pages.dev",
+    screen: "contabilidad.png",
     summary: "Una propuesta educativa compleja transformada en un recorrido simple y convincente.",
     stack: "UX · Storytelling",
     tone: "orange",
@@ -40,6 +44,7 @@ const projects = [
     name: "NextCampus",
     type: "Producto educativo",
     url: "https://nextcampus.space",
+    screen: "nextcampus.png",
     summary: "Materias, apuntes, calendario y correlativas en una experiencia académica centralizada.",
     stack: "Product · Full-stack",
     tone: "sky",
@@ -156,8 +161,9 @@ export default function Home() {
                 <span>{project.number}</span>
                 <span>{project.type}</span>
               </div>
-              <div className="project-mark" aria-hidden="true">
-                {project.name.split(" ").map((word) => word[0]).join("").slice(0, 2)}
+              <div className="project-screen" aria-hidden="true">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/portfolio/screens/${project.screen}`} alt="" />
               </div>
               <div className="project-bottom">
                 <h3>{project.name}</h3>

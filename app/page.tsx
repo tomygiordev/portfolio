@@ -162,8 +162,11 @@ export default function Home() {
                 <span>{project.type}</span>
               </div>
               <div className="project-screen" aria-hidden="true">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`/portfolio/screens/${project.screen}`} alt="" />
+                <picture>
+                  <source media="(max-width: 680px)" srcSet={`/portfolio/screens/mobile/${project.screen}`} />
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img src={`/portfolio/screens/${project.screen}`} alt="" />
+                </picture>
               </div>
               <div className="project-bottom">
                 <h3>{project.name}</h3>

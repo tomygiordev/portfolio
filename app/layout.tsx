@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Manrope } from "next/font/google";
-import { headers } from "next/headers";
 import "./globals.css";
 
 const display = Barlow_Condensed({
@@ -15,35 +14,37 @@ const body = Manrope({
   weight: ["400", "500", "600", "700"],
 });
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("host") ?? "localhost:3000";
-  const protocol = host.includes("localhost") ? "http" : "https";
-  const ogImage = `${protocol}://${host}/og.png`;
+const siteUrl = "https://tomygiordev.github.io/portfolio";
 
-  return {
-    title: "Gime — Diseño, producto y desarrollo digital",
-    description:
-      "Portfolio de Gime. Estrategia, diseño y desarrollo de productos digitales, sitios web y sistemas que resuelven problemas reales.",
-    icons: {
-      icon: "/favicon.svg",
-      shortcut: "/favicon.svg",
-    },
-    openGraph: {
-      title: "Gime — Ideas digitales que funcionan",
-      description: "Diseño, producto y código para mover negocios reales.",
-      type: "website",
-      locale: "es_AR",
-      images: [{ url: ogImage, width: 1536, height: 910, alt: "Construyo ideas que funcionan." }],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: "Gime — Ideas digitales que funcionan",
-      description: "Diseño, producto y código para mover negocios reales.",
-      images: [ogImage],
-    },
-  };
-}
+export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
+  title: "Gime — Diseño, producto y desarrollo digital",
+  description:
+    "Portfolio de Gime. Estrategia, diseño y desarrollo de productos digitales, sitios web y sistemas que resuelven problemas reales.",
+  icons: {
+    icon: "/portfolio/favicon.svg",
+    shortcut: "/portfolio/favicon.svg",
+  },
+  openGraph: {
+    title: "Gime — Ideas digitales que funcionan",
+    description: "Diseño, producto y código para mover negocios reales.",
+    type: "website",
+    locale: "es_AR",
+    url: siteUrl,
+    images: [{
+      url: `${siteUrl}/og.png`,
+      width: 1536,
+      height: 910,
+      alt: "Construyo ideas que funcionan.",
+    }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gime — Ideas digitales que funcionan",
+    description: "Diseño, producto y código para mover negocios reales.",
+    images: [`${siteUrl}/og.png`],
+  },
+};
 
 export default function RootLayout({
   children,

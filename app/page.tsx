@@ -188,7 +188,7 @@ export default function Home() {
       <section className="manifesto" id="perfil">
         <div className="manifesto-photo">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/perfil.png" alt="Retrato de Gime, diseñador y desarrollador digital" />
+          <img src="/portfolio/perfil.png" alt="Retrato de Gime, diseñador y desarrollador digital" />
           <span className="photo-label">Ese soy yo →</span>
         </div>
         <div className="manifesto-copy">
